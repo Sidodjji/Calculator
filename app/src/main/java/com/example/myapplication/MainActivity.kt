@@ -11,7 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.myapplication.ui.theme.MyApplicationTheme
-
+import kotlin.math.PI
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,6 +25,8 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
@@ -40,4 +42,41 @@ fun GreetingPreview() {
     MyApplicationTheme {
         Greeting("Android")
     }
+}
+
+class Calculator {
+    fun calculateCircleArea(radius: Double): Double {
+        return PI * radius * radius
+    }
+
+    fun calculateSquareArea(sideLength: Double): Double {
+        return sideLength * sideLength
+    }
+
+    fun calculateRectangleArea(length: Double, width: Double): Double {
+        return length * width
+    }
+
+    fun calculateTriangleArea(base: Double, height: Double): Double {
+        return 0.5 * base * height
+    }
+}
+
+fun main() {
+    val calculator = Calculator()
+
+
+    val circleArea = calculator.calculateCircleArea(5.0)
+    println("Площа кола: $circleArea")
+
+    val squareArea = calculator.calculateSquareArea(4.0)
+    println("Площа квадрата: $squareArea")
+
+
+    val rectangleArea = calculator.calculateRectangleArea(3.0, 6.0)
+    println("Площа прямокутника: $rectangleArea")
+
+    val triangleArea = calculator.calculateTriangleArea(4.0, 5.0)
+    println("Площа трикутника: $triangleArea")
+
 }
